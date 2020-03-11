@@ -1,5 +1,3 @@
-
-
 $("#submit").on("click", function (event) {
     event.preventDefault();
     var newReservation = {
@@ -8,4 +6,4 @@ $("#submit").on("click", function (event) {
         email = $("#Email-input").val().trim(),
         uniqueId = $("#uniqueId-input").val().trim(),
     }
-})
+});

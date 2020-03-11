@@ -6,4 +6,10 @@ $("#submit").on("click", function (event) {
         email = $("#Email-input").val().trim(),
         uniqueId = $("#uniqueId-input").val().trim(),
     }
-});
+})
+
+function validate(newReservation){
+    console.log(newReservation)
+
+    //if (!customerName || !phoneNumber)
+}

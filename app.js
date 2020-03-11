@@ -6,6 +6,12 @@ $("#submit").on("click", function (event) {
         email = $("#Email-input").val().trim(),
         uniqueId = $("#uniqueId-input").val().trim(),
     }
+
+    $.post("/api/tables", newReservation)
+        .then(function(data) {
+          console.log("index.html", data);
+          alert("Adding reservation...");
+        });
 })
 
 function validate(newReservation){

@@ -50,6 +50,12 @@ app.post("/api/tables", function(req, res) {
     }
 });
 
+app.post("/api/clear", function(req, res) {
+    tables.length = 0;
+    waitList.length = 0;
+    res.json({ ok: true });
+  });
+
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

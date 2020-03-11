@@ -3,8 +3,8 @@ $("#submit").on("click", function (event) {
     var newReservation = {
     customerName : $("#customerName-input").val().trim(),
     phoneNumber : $("#phoneNumber-input").val().trim(),
-    email : $("#Email-input").val().trim(),
-    uniqueId : $("#uniqueId-input").val().trim()
+    customerEmail : $("#Email-input").val().trim(),
+    customerID : $("#uniqueId-input").val().trim()
     };
   
     console.log(newReservation);
@@ -23,14 +23,4 @@ $("#submit").on("click", function (event) {
         });
 
 });
-            
-
-// function validate(customerName, phoneNumber) {
-    
-//     if (!customerName || !phoneNumber) {
-//         return false;
-//     }
-
-//     return true;
-// }
 

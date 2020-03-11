@@ -59,7 +59,7 @@
         console.log(tables);
         console.log("------------------------------------");
         for (var i = 0; i < tables.length; i++) {
-          var tables = $("#tableList");
+          var tablesHTML = $("#tableList");
           var listItem = $("<li class='list-group-item mt-4'>");
           listItem.append(
             $("<h2>").text("Table #" + (i + 1)),
@@ -69,7 +69,7 @@
             $("<h2>").text("Email: " + tables[i].customerEmail),
             $("<h2>").text("Phone: " + tables[i].phoneNumber)
           );
-          tableList.append(listItem);
+          tablesHTML.append(listItem);
         }
       });
   }

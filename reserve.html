@@ -22,7 +22,7 @@
                 <a href="/tables"><button class="btn btn-lg btn-primary"><span class="fa fa-list-alt"></span> View
                         Tables</button></a>
 
-                <a href="/index"><button class="btn btn-lg btn-default bg-white"><span
+                <a href="/"><button class="btn btn-lg btn-default bg-white"><span
                             class="fa fa-home bg-white"></span></button></a>
             </div>
         </div>
@@ -56,7 +56,7 @@
                 <input class="form-control" id="uniqueId-input" type="text">
             </div>
 
-            <button class="btn btn-default" id="submit" type="submit">Submit</button>
+            <button class="btn btn-default bg-primary" id="submit" type="submit">Submit</button>
         </form>
     </div>
 </div>
@@ -70,7 +70,33 @@
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="./app.js"></script>
+<script>
+    $("#submit").on("click", function (event) {
+    event.preventDefault();
+    var newReservation = {
+    customerName : $("#customerName-input").val().trim(),
+    phoneNumber : $("#phoneNumber-input").val().trim(),
+    customerEmail : $("#Email-input").val().trim(),
+    customerID : $("#uniqueId-input").val().trim()
+    };
+  
+    console.log(newReservation);
+    $.post("/api/tables", newReservation)
+        .then(function(data) {
+            if (data) {
+                alert("Adding Reservation");
+            } else {
+                alert("Sorry, you are wait-listed")
+            }
+        
+        $("#customerName-input").val("");
+        $("#phoneNumber-input").val("");
+        $("#Email-input").val("");
+        $("#uniqueId-input").val("");
+        });
+
+});
+</script>
 
 </body>
 </html>

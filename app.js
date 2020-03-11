@@ -17,6 +17,25 @@ $("#submit").on("click", function (event) {
     else{
         alert('Customer name and phone number are required to make a reservation')
     }
+  
+ apitables
+    $.post("/api/tables", newReservation,
+    function(data) {
+        if (data) {
+            alert("Adding Reservation");
+        } else {
+            alert("Sorry, you are wait-listed")
+        }
+    
+    $("#customerName-input").val("");
+    $("#phoneNumber-input").val("");
+    $("#Email-input").val("");
+    $("#uniqueId-input").val("");
+    });
+
+});
+            
+
 })
 
 function validate(customerName, phoneNumber) {
@@ -27,3 +46,4 @@ function validate(customerName, phoneNumber) {
 
     return true;
 }
+

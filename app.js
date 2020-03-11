@@ -1,5 +1,3 @@
-
-
 $("#submit").on("click", function (event) {
     event.preventDefault();
     var newReservation = {
@@ -9,3 +7,9 @@ $("#submit").on("click", function (event) {
         uniqueId = $("#uniqueId-input").val().trim(),
     }
 })
+
+function validate(newReservation){
+    console.log(newReservation)
+
+    //if (!customerName || !phoneNumber)
+}

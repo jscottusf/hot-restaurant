@@ -21,6 +21,10 @@ app.get("/reserve", function (req, res) {
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
+app.get('/app', function(req, res) {
+    res.sendFile(path.join(__dirname, "/app.js"));
+  });
+
 // route to the tables/waitlist page
 app.get("/tables", function (req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));

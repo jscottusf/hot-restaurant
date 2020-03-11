@@ -8,38 +8,34 @@ $("#submit").on("click", function (event) {
 
     if (validate(customerName, phoneNumber)) {
         var newReservation = {
-            customerName,
-            phoneNumber,
-            email,
-            uniqueId
+            customerName: customerName,
+            phoneNumber: phoneNumber,
+            email: email,
+            uniqueId: uniqueId
         }
     }
-    else{
+    else {
         alert('Customer name and phone number are required to make a reservation')
     }
-  
- apitables
-    $.post("/api/tables", newReservation,
-    function(data) {
-        if (data) {
-            alert("Adding Reservation");
-        } else {
-            alert("Sorry, you are wait-listed")
-        }
-    
-    $("#customerName-input").val("");
-    $("#phoneNumber-input").val("");
-    $("#Email-input").val("");
-    $("#uniqueId-input").val("");
-    });
 
+    apitables
+    $.post("/api/tables", newReservation)
+        .then(function (data) {
+            if (data) {
+                alert("Adding Reservation");
+            } else {
+                alert("Sorry, you are wait-listed")
+            }
+
+            $("#customerName-input").val("");
+            $("#phoneNumber-input").val("");
+            $("#Email-input").val("");
+            $("#uniqueId-input").val("");
+        });
 });
-            
-
-})
 
 function validate(customerName, phoneNumber) {
-    
+
     if (!customerName || !phoneNumber) {
         return false;
     }
